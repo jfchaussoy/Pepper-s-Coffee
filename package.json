@@ -1,0 +1,40 @@
+{
+  "name": "pepper-s-coffee",
+  "version": "1.0.0",
+  "description": "Pepper's Coffee est un détaillant de café et de produits associés à la consommation du café basé dans la ville de Hauts-de-Cloques.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "coffee",
+    "shop",
+    "ecommerce",
+    "express",
+    "sequelize"
+  ],
+  "author": "Jean-Francois Chaussoy <docjef62@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.4.2",
+    "nodemon": "^2.0.22"
+  }
+}

@@ -5,41 +5,48 @@
   <!-- Meta Information -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Détails de l'article de Pepper's Coffee, votre spécialiste du café de qualité à Hauts-de-Cloques">
-
-  <!-- Page Title -->
   <title>Pepper's Coffee | Détails de l'Article</title>
 
-  <!-- Common Stylesheets -->
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/layout.css">
-
-  <!-- Page-specific Stylesheet -->
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/catalog.css">
   <link rel="stylesheet" href="../css/article-detail.css">
 </head>
 
 <body>
-  <!-- Header -->
   <header>
-    <a href="./home.html" class="logo-link">
-      <img src="../images/logo.svg" alt="Logo de Pepper's Coffee" class="logo">
-      <span class="brand-name">Pepper's Coffee</span>
-    </a>
-
-    <nav id="navigation-menu">
-      <button id="nav-toggle-button" aria-label="Afficher les liens de navigation" type="button" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <nav id="navigation-menu"> <!-- Ajout de l'ID ici -->
+      <a href="/" class="logo-link">
+        <img src="../images/logo.svg" alt="Logo Pepper's Coffee" class="logo">
+        <span class="brand-name">Pepper's Coffee</span>
+      </a>
+      <button id="nav-toggle-button" aria-expanded="false" aria-label="Afficher les liens de navigation">
+        <!-- Icon Open -->
+        <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 6H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        <!-- Icon Close -->
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </svg>
       </button>
 
       <ul class="navigation-links">
-        <li><a href="./home.html">Accueil</a></li>
-        <li><a href="./catalog.html">Catalogue</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/catalog">Catalogue</a></li>
       </ul>
     </nav>
   </header>
@@ -50,12 +57,14 @@
     <section id="product-detail">
       <h1>Détails de l'Article</h1>
       <article class="product-detail-item">
-        <img src="../images/coffees/100955890.webp" alt="Nom de l'Article" loading="lazy" class="product-detail-image">
+        <img src="" alt="Image de l'Article" loading="lazy" class="product-detail-image" id="detail-image">
         <div class="product-detail-info">
-          <h2 class="product-detail-name">Nom de l'Article</h2>
-          <p class="product-detail-description">Description détaillée de l'article.</p>
-          <p class="product-detail-price">Prix: <strong>€XX.XX</strong></p>
-          <a href="./catalog.html" class="btn">Retour au Catalogue</a>
+          <h2 class="product-detail-name" id="detail-name">Nom de l'Article</h2>
+          <p class="product-detail-description" id="detail-description">Description détaillée de l'article.</p>
+          <p class="product-detail-price" id="detail-price">Prix : <strong>€XX.XX</strong></p>
+          <p class="product-detail-origin" id="detail-origin">Origine : Pays</p>
+          <p class="product-detail-reference" id="detail-reference">Référence : REF123456</p>
+          <a href="/catalog" class="btn">Retour au Catalogue</a>
         </div>
       </article>
     </section>
@@ -67,26 +76,8 @@
   </footer>
 
   <!-- Common Scripts -->
-  <script>
-    // Load additional HTML components dynamically for SEO and accessibility
-    fetch('../includes/head.html')
-      .then(response => response.text())
-      .then(data => {
-        document.head.innerHTML += data;
-      });
-
-    fetch('../includes/header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.body.insertAdjacentHTML('afterbegin', data);
-      });
-
-    fetch('../includes/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.body.insertAdjacentHTML('beforeend', data);
-      });
-  </script>
   <script defer src="../js/header.js"></script>
+  <script defer src="../js/article-detail.js"></script>
 </body>
+
 </html>

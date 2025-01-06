@@ -5,47 +5,47 @@
   <!-- Meta Information -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="La boutique de Pepper's Coffee des frères Pepper, spécialistes du café à Hauts-de-Cloques">
-
-  <!-- Page Title -->
-  <title>Pepper's Coffee</title>
-
-  <!-- Common Stylesheets -->
+  <title>Pepper's Coffee | Accueil</title>
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/layout.css">
-
-  <!-- Page-specific Stylesheet -->
   <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/catalog.css">
+  <link rel="stylesheet" href="../css/article-detail.css">
 </head>
 
 <body>
-  <!-- Header -->
   <header>
-    <a href="./home.html" class="logo-link">
-      <img src="../images/logo.svg" alt="Logo de Pepper's Coffee" class="logo">
-      <span class="brand-name">Pepper's Coffee</span>
-    </a>
-
-    <nav id="navigation-menu">
-      <button id="nav-toggle-button" aria-label="Afficher les liens de navigation" type="button" aria-expanded="false">
-        <!-- Icon Hamburger -->
-        <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 5H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M3 19H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <nav id="navigation-menu"> <!-- Ajout de l'ID ici -->
+      <a href="/" class="logo-link">
+        <img src="../images/logo.svg" alt="Logo Pepper's Coffee" class="logo">
+        <span class="brand-name">Pepper's Coffee</span>
+      </a>
+      <button id="nav-toggle-button" aria-expanded="false" aria-label="Afficher les liens de navigation">
+        <!-- Icon Open -->
+        <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 6H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </svg>
-        <!-- Icon Cross -->
-        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        <!-- Icon Close -->
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
         </svg>
       </button>
 
       <ul class="navigation-links">
-        <li><a href="./home.html">Accueil</a></li>
-        <li><a href="./catalog.html">Catalogue</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/catalog">Catalogue</a></li>
       </ul>
     </nav>
   </header>
@@ -57,7 +57,7 @@
       <div class="about-content">
         <h1>Votre spécialiste du café</h1>
         <p>Peppers Coffee est un détaillant de café et de produits associés à la consommation du café basé dans la ville du Trou d'Enfer. Nous importons nos produits directement des producteurs, et nous les sélectionnons selon des critères exigeants de qualité. Peppers Coffee est reconnu à l’échelle départementale.</p>
-        <a class="btn" href="./catalog.html">Découvrir notre catalogue</a>
+        <a class="btn" href="/catalog">Découvrir notre catalogue</a>
       </div>
       <img src="../images/about.webp" alt="Sélection de nos meilleurs cafés Pepper's Coffee" class="about-image">
     </section>
@@ -66,36 +66,8 @@
     <section id="new-arrivals">
       <h2>Nouveautés</h2>
 
-      <ul class="product-list">
-        <li>
-          <article class="product-item">
-            <img src="../images/coffees/100955890.webp" alt="Ethiopian Yirgacheffe" class="product-image">
-            <div class="product-info">
-              <h3 class="product-title">Ethiopian Yirgacheffe</h3>
-              <a class="btn-outline" href="./article-detail.html">Voir le détail</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article class="product-item">
-            <img src="../images/coffees/100955890.webp" alt="Ethiopian Yirgacheffe" class="product-image">
-            <div class="product-info">
-              <h3 class="product-title">Ethiopian Yirgacheffe</h3>
-              <a class="btn-outline" href="#">Voir le détail</a>
-            </div>
-          </article>
-        </li>
-
-        <li>
-          <article class="product-item">
-            <img src="../images/coffees/100955890.webp" alt="Ethiopian Yirgacheffe" class="product-image">
-            <div class="product-info">
-              <h3 class="product-title">Ethiopian Yirgacheffe</h3>
-              <a class="btn-outline" href="#">Voir le détail</a>
-            </div>
-          </article>
-        </li>
+      <ul class="product-list" id="new-arrivals-list">
+        <!-- Dynamic Coffee Items Will Be Injected Here -->
       </ul>
     </section>
   </main>
@@ -107,5 +79,7 @@
 
   <!-- Common Scripts -->
   <script defer src="../js/header.js"></script>
+  <script defer src="../js/home.js"></script>
 </body>
+
 </html>

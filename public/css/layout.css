@@ -23,6 +23,7 @@ header {
   font-size: 1.5rem;
   color: var(--color-dark);
   font-weight: bold;
+  text-decoration: none;
 }
 
 .logo {
@@ -31,13 +32,21 @@ header {
 }
 
 .brand-name {
-  display: block;
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
   .brand-name {
     display: inline;
   }
+}
+
+/* Navigation Styles */
+#navigation-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 /* Navigation Styles */

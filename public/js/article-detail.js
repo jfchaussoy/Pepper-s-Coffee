@@ -34,7 +34,7 @@ async function fetchCoffeeDetails(id) {
     renderCoffeeDetails(coffee);
   } catch (error) {
     console.error('Error fetching coffee details:', error);
-    displayError(error.message);
+    displayError('Erreur lors de la récupération des détails du produit.');
   }
 }
 

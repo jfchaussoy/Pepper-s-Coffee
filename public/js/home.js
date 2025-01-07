@@ -1,5 +1,3 @@
-// js/home.js
-
 /**
  * Fetches the latest coffees and displays them in the New Arrivals section.
  */
@@ -18,14 +16,14 @@ async function fetchNewArrivals() {
     }
     const coffees = await response.json();
 
-    // Pour la démonstration, supposons que les 3 premiers sont des nouvelles arrivées
+    // For demonstration, assume the first 3 are new arrivals
     const newArrivals = coffees.slice(0, 3);
 
     renderNewArrivals(newArrivals);
   } catch (error) {
     console.error('Error fetching new arrivals:', error);
     const newArrivalsList = document.getElementById('new-arrivals-list');
-    newArrivalsList.innerHTML = '<li>Erreur lors du chargement des nouveautés.</li>';
+    newArrivalsList.innerHTML = '<li>Error loading new arrivals.</li>';
   }
 }
 
@@ -44,7 +42,7 @@ function renderNewArrivals(coffees) {
         <img src="${coffee.imageUrl}" alt="${coffee.name}" class="product-image">
         <div class="product-info">
           <h3 class="product-title">${coffee.name}</h3>
-          <a class="btn-outline" href="/article-detail?id=${coffee.id}">Voir le détail</a>
+          <a class="btn-outline" href="/article-detail?id=${coffee.id}">View Details</a>
         </div>
       </article>
     `;

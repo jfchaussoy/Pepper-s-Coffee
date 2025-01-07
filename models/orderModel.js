@@ -1,43 +1,32 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Coffee = sequelize.define('Coffee', {
+  const Order = sequelize.define('Order', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING(255),
-      unique: true,
+    order_date: {
+      type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
-    description: {
-      type: DataTypes.TEXT,
-    },
-    reference: {
-      type: DataTypes.CHAR(9),
-      unique: true,
+    status: {
+      type: DataTypes.STRING(50),
       allowNull: false,
+      defaultValue: 'pending',
     },
-    origin_country: {
-      type: DataTypes.STRING(255),
+    total_amount: {
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
+      defaultValue: 0,
     },
-    price_per_kg: {
-      type: DataTypes.DECIMAL,
-      allowNull: false,
-    },
-    available: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false,
-    },
-    category_id: {
+    customer_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'categories',
+        model: 'customer',
         key: 'id',
       },
     },
@@ -50,9 +39,9 @@ module.exports = (sequelize) => {
       type: DataTypes.DATE,
     },
   }, {
-    tableName: 'coffee',
+    tableName: 'orders',
     timestamps: false,
   });
 
-  return Coffee;
+  return Order;
 };

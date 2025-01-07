@@ -1,4 +1,3 @@
-/* layout.css */
 /* Layout-specific styles including header and footer */
 
 /* Header Styles */
@@ -49,7 +48,6 @@ header {
   width: 100%;
 }
 
-/* Navigation Styles */
 .navigation-links {
   display: flex;
   gap: 2rem;

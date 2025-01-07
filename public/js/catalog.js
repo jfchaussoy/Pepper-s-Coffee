@@ -1,5 +1,3 @@
-// js/catalog.js
-
 /**
  * Fetches all coffees from the API and displays them in the Catalog section.
  */
@@ -23,7 +21,7 @@ async function fetchCoffees() {
   } catch (error) {
     console.error('Error fetching coffees:', error);
     const productList = document.getElementById('product-list');
-    productList.innerHTML = '<p>Erreur lors du chargement des produits.</p>';
+    productList.innerHTML = '<p>Error loading products.</p>';
   }
 }
 
@@ -42,9 +40,9 @@ function renderCoffees(coffees) {
       <img src="${coffee.imageUrl}" alt="${coffee.name}" class="product-image">
       <div class="product-details">
         <h2 class="product-name">${coffee.name}</h2>
-        <p class="product-origin">Origine : ${coffee.origin_country}</p>
-        <p class="product-price">Prix : €${parseFloat(coffee.price_per_kg).toFixed(2)}/kg</p>
-        <a class="btn-outline" href="/article-detail?id=${coffee.id}">Voir le détail</a>
+        <p class="product-origin">Origin: ${coffee.origin_country}</p>
+        <p class="product-price">Price: €${parseFloat(coffee.price_per_kg).toFixed(2)}/kg</p>
+        <a class="btn-outline" href="/article-detail?id=${coffee.id}">View Details</a>
       </div>
     `;
     productList.appendChild(productItem);

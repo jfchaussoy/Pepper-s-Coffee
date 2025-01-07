@@ -1,9 +1,8 @@
-// routes/coffeeRoute.js
 const express = require('express');
 const router = express.Router();
 const coffeeController = require('../controllers/coffeeController');
 
-// Routes for coffees
+// CRUD Routes for coffees
 router.get('/', coffeeController.getAllCoffees);
 router.get('/:id', coffeeController.getCoffeeById);
 router.post('/', coffeeController.createCoffee);

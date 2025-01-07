@@ -1,9 +1,7 @@
-// controllers/categoryController.js
-const { Category } = require('../models/indexModels');
-
+const Category = require('../models/categoryModel');
 
 /**
- * Fetches all categories.
+ * Retrieves all categories.
  */
 exports.getAllCategories = async (req, res) => {
   try {
@@ -16,16 +14,15 @@ exports.getAllCategories = async (req, res) => {
 };
 
 /**
- * Fetches a category by ID.
+ * Retrieves a category by ID.
  */
 exports.getCategoryById = async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id);
-    if (category) {
-      res.json(category);
-    } else {
-      res.status(404).json({ error: 'Category not found' });
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
     }
+    res.json(category);
   } catch (error) {
     console.error('Error fetching category:', error);
     res.status(500).json({ error: 'Internal Server Error' });
@@ -38,49 +35,43 @@ exports.getCategoryById = async (req, res) => {
 exports.createCategory = async (req, res) => {
   try {
     const { name } = req.body;
-    if (!name) {
-      return res.status(400).json({ error: 'Category name is required' });
-    }
     const newCategory = await Category.create({ name });
     res.status(201).json(newCategory);
   } catch (error) {
     console.error('Error creating category:', error);
-    res.status(400).json({ error: 'Invalid Request' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
 /**
- * Updates an existing category.
+ * Updates an existing category by ID.
  */
 exports.updateCategory = async (req, res) => {
   try {
-    const { name } = req.body;
     const category = await Category.findByPk(req.params.id);
-    if (category) {
-      category.name = name || category.name;
-      await category.save();
-      res.json(category);
-    } else {
-      res.status(404).json({ error: 'Category not found' });
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
     }
+    const { name } = req.body;
+    await category.update({ name });
+    res.json(category);
   } catch (error) {
     console.error('Error updating category:', error);
-    res.status(400).json({ error: 'Invalid Request' });
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
 /**
- * Deletes a category.
+ * Deletes a category by ID.
  */
 exports.deleteCategory = async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id);
-    if (category) {
-      await category.destroy();
-      res.json({ message: 'Category successfully deleted' });
-    } else {
-      res.status(404).json({ error: 'Category not found' });
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
     }
+    await category.destroy();
+    res.status(200).json({ message: 'Category deleted successfully' });
   } catch (error) {
     console.error('Error deleting category:', error);
     res.status(500).json({ error: 'Internal Server Error' });

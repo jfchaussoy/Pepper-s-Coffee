@@ -6,20 +6,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pepper's Coffee | Accueil</title>
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/home.css">
-  <link rel="stylesheet" href="../css/catalog.css">
-  <link rel="stylesheet" href="../css/article-detail.css">
+  
+  <!-- Stylesheets avec chemins absolus -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/catalog.css">
+  <link rel="stylesheet" href="/css/article-detail.css">
 </head>
 
 <body>
   <header>
-    <nav id="navigation-menu"> <!-- Ajout de l'ID ici -->
+    <nav id="navigation-menu">
       <a href="/" class="logo-link">
-        <img src="../images/logo.svg" alt="Logo Pepper's Coffee" class="logo">
+        <img src="/images/logo.svg" alt="Logo Pepper's Coffee" class="logo">
         <span class="brand-name">Pepper's Coffee</span>
       </a>
       <button id="nav-toggle-button" aria-expanded="false" aria-label="Afficher les liens de navigation">
@@ -59,7 +61,7 @@
         <p>Peppers Coffee est un détaillant de café et de produits associés à la consommation du café basé dans la ville du Trou d'Enfer. Nous importons nos produits directement des producteurs, et nous les sélectionnons selon des critères exigeants de qualité. Peppers Coffee est reconnu à l’échelle départementale.</p>
         <a class="btn" href="/catalog">Découvrir notre catalogue</a>
       </div>
-      <img src="../images/about.webp" alt="Sélection de nos meilleurs cafés Pepper's Coffee" class="about-image">
+      <img src="/images/about.webp" alt="Sélection de nos meilleurs cafés Pepper's Coffee" class="about-image">
     </section>
 
     <!-- New Arrivals Section -->
@@ -77,9 +79,9 @@
     <p>O'Clock & Pepper Brothers - Tous droits réservés</p>
   </footer>
 
-  <!-- Common Scripts -->
-  <script defer src="../js/header.js"></script>
-  <script defer src="../js/home.js"></script>
+  <!-- Common Scripts avec chemins absolus -->
+  <script defer src="/js/header.js"></script>
+  <script defer src="/js/home.js"></script>
 </body>
 
 </html>

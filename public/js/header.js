@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavigationMenu();
 });
 
+/**
+ * Initializes the navigation menu toggle functionality.
+ */
 function initNavigationMenu() {
   const navigationMenu = document.getElementById("navigation-menu");
   const navToggleButton = document.getElementById("nav-toggle-button");
@@ -10,7 +13,7 @@ function initNavigationMenu() {
   const iconClose = document.querySelector(".icon-close");
 
   if (!navigationMenu || !navToggleButton || !navigationLinks) {
-    console.error("Éléments de navigation introuvables dans le DOM.");
+    console.error("Navigation elements not found in the DOM.");
     return;
   }
 
@@ -21,10 +24,10 @@ function initNavigationMenu() {
 
     navToggleButton.setAttribute("aria-expanded", isExpanded);
     navToggleButton.setAttribute("aria-label",
-      isExpanded ? "Cacher les liens de navigation" : "Afficher les liens de navigation"
+      isExpanded ? "Hide navigation links" : "Show navigation links"
     );
 
-    // Toggle des icônes
+    // Toggle icons visibility
     iconOpen.style.display = isExpanded ? "none" : "block";
     iconClose.style.display = isExpanded ? "block" : "none";
   });

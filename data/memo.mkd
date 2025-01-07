@@ -1,0 +1,19 @@
+# Mémo de PostgreSQL
+
+psql -U postgres
+
+DROP ROLE IF EXISTS pepperscoffee;
+
+CREATE ROLE pepperscoffee WITH LOGIN PASSWORD 'PepperCoffee123';
+
+ALTER ROLE pepperscoffee CREATEDB;
+
+DROP DATABASE IF EXISTS pepperscoffee;
+
+CREATE DATABASE pepperscoffee OWNER pepperscoffee;
+
+\c pepperscoffee
+
+\l pepperscoffee
+
+psql -U pepperscoffee -d pepperscoffee -h localhost -p 5432

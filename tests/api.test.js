@@ -2,6 +2,7 @@ const request = require('supertest');
 const app = require('../index');
 const sequelize = require('../config/sequelize');
 const { Coffee, Category } = require('../models/indexModels');
+const { beforeAll, afterAll, describe, it, expect } = require('@jest/globals');
 
 beforeAll(async () => {
   // Synchronize the database and add test data

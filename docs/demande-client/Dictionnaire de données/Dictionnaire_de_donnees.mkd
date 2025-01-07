@@ -1,0 +1,59 @@
+# 📚 Dictionnaire des Données
+
+## 📋 Structure des Tables
+
+### 🔶 Table : category
+
+| Champ | Type | Contraintes | Description |
+|-------|------|-------------|-------------|
+| id | INTEGER | PRIMARY KEY, AUTO-INCREMENT | Identifiant unique |
+| name | VARCHAR(100) | UNIQUE, NOT NULL | Nom de la catégorie |
+| created_at | TIMESTAMPTZ | DEFAULT NOW(), NOT NULL | Date de création |
+| updated_at | TIMESTAMPTZ | NULL | Date de modification |
+
+### ☕ Table : coffee
+
+| Champ | Type | Contraintes | Description |
+|-------|------|-------------|-------------|
+| id | INTEGER | PRIMARY KEY, AUTO-INCREMENT | Identifiant unique |
+| name | VARCHAR(255) | UNIQUE, NOT NULL | Nom du café |
+| description | TEXT | NULL | Description du café |
+| reference | CHAR(9) | UNIQUE, NOT NULL | Référence unique |
+| origin_country | VARCHAR(255) | NOT NULL | Pays d'origine |
+| price_per_kg | DECIMAL | NOT NULL | Prix au kilo |
+| available | BOOLEAN | DEFAULT false, NOT NULL | Disponibilité |
+| category_id | INTEGER | FOREIGN KEY REFERENCES category(id), NOT NULL | Catégorie associée |
+| created_at | TIMESTAMPTZ | DEFAULT NOW(), NOT NULL | Date de création |
+| updated_at | TIMESTAMPTZ | NULL | Date de modification |
+
+### 👤 Table : customer
+
+| Champ | Type | Contraintes | Description |
+|-------|------|-------------|-------------|
+| id | INTEGER | PRIMARY KEY, AUTO-INCREMENT | Identifiant unique |
+| email | VARCHAR(255) | UNIQUE, NOT NULL | Email du client |
+| password | VARCHAR(255) | NOT NULL | Mot de passe |
+| address | VARCHAR(255) | NULL | Adresse de livraison |
+| created_at | TIMESTAMPTZ | DEFAULT NOW(), NOT NULL | Date de création |
+| updated_at | TIMESTAMPTZ | NULL | Date de modification |
+
+### 🛒 Table : orders
+
+| Champ | Type | Contraintes | Description |
+|-------|------|-------------|-------------|
+| id | INTEGER | PRIMARY KEY, AUTO-INCREMENT | Identifiant unique |
+| order_date | TIMESTAMPTZ | DEFAULT NOW(), NOT NULL | Date de commande |
+| status | VARCHAR(50) | DEFAULT 'pending', NOT NULL | État de la commande |
+| total_amount | DECIMAL(10,2) | DEFAULT 0, NOT NULL | Montant total |
+| customer_id | INTEGER | FOREIGN KEY REFERENCES customer(id), NOT NULL | Client associé |
+| created_at | TIMESTAMPTZ | DEFAULT NOW(), NOT NULL | Date de création |
+| updated_at | TIMESTAMPTZ | NULL | Date de modification |
+
+### 📝 Table : order_item
+
+| Champ | Type | Contraintes | Description |
+|-------|------|-------------|-------------|
+| id | INTEGER | PRIMARY KEY, AUTO-INCREMENT | Identifiant unique |
+| order_id | INTEGER | FOREIGN KEY REFERENCES orders(id), NOT NULL | Commande associée |
+| coffee_id | INTEGER | FOREIGN KEY REFERENCES coffee(id), NOT NULL | Café commandé |
+| quantity | INTEGER | DEFAULT 1, NOT NULL | Quantité commandée |

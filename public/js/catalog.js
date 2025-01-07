@@ -58,3 +58,6 @@ function setupViewAllButton() {
     window.location.href = '/catalog';
   });
 }
+
+
+

@@ -49,3 +49,9 @@ function renderNewArrivals(coffees) {
     newArrivalsList.appendChild(listItem);
   });
 }
+
+
+
+
+
+

@@ -1,11 +1,13 @@
 const { DataTypes } = require('sequelize');
 
+// Define the Category model with its attributes and configurations
 module.exports = (sequelize) => {
   const Category = sequelize.define('Category', {
     id: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+      primaryKey: true,       
+      autoIncrement: true,    
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING(100),

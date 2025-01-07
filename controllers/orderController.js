@@ -1,19 +1,23 @@
-const Order = require('../models/orderModel');
-const OrderItem = require('../models/orderItemModel');
-const Coffee = require('../models/coffeeModel');
+const { Order, OrderItem, Coffee, Customer } = require('../models/indexModels');
 
 /**
- * Retrieves all orders, including items for each order.
+ * Retrieves all orders, including related order items and coffee information.
  */
 exports.getAllOrders = async (req, res) => {
   try {
     const orders = await Order.findAll({
-      include: [
-        {
-          model: OrderItem,
-          include: [Coffee],
-        },
-      ],
+      include: [{
+        model: OrderItem,
+        as: 'items',
+        include: [{
+          model: Coffee,
+          as: 'coffee'
+        }]
+      },
+      {
+        model: Customer,
+        as: 'customer'
+      }]
     });
     res.json(orders);
   } catch (error) {
@@ -23,7 +27,7 @@ exports.getAllOrders = async (req, res) => {
 };
 
 /**
- * Retrieves an order by ID, including its items.
+ * Retrieves a specific order by its ID, including related order items and coffee information.
  */
 exports.getOrderById = async (req, res) => {
   try {
@@ -31,8 +35,18 @@ exports.getOrderById = async (req, res) => {
       include: [
         {
           model: OrderItem,
-          include: [Coffee],
+          as: 'items',
+          include: [
+            {
+              model: Coffee,
+              as: 'coffee'
+            }
+          ]
         },
+        {
+          model: Customer,
+          as: 'customer'
+        }
       ],
     });
     if (!order) {
@@ -46,15 +60,24 @@ exports.getOrderById = async (req, res) => {
 };
 
 /**
- * Creates a new order.
+ * Creates a new order with the provided data.
  */
 exports.createOrder = async (req, res) => {
   try {
-    const { customer_id, items } = req.body; // items: [{ coffee_id, quantity }, ...]
-
-    // Create the order
-    const newOrder = await Order.create({ customer_id, status: 'pending' });
-
+    const { customer_id, items } = req.body;
+    // Calculate total amount based on items
+    let totalAmount = 0;
+    for (const item of items) {
+      const coffee = await Coffee.findByPk(item.coffee_id);
+      if (!coffee) {
+        return res.status(400).json({ error: `Coffee with ID ${item.coffee_id} not found` });
+      }
+      totalAmount += parseFloat(coffee.price_per_kg) * item.quantity;
+    }
+    const newOrder = await Order.create({
+      customer_id,
+      total_amount: totalAmount,
+    });
     // Create order items
     for (const item of items) {
       await OrderItem.create({
@@ -63,23 +86,6 @@ exports.createOrder = async (req, res) => {
         quantity: item.quantity,
       });
     }
-
-    // Calculate total_amount
-    const totalAmount = await OrderItem.sum('quantity', {
-      where: { order_id: newOrder.id },
-      include: [
-        {
-          model: Coffee,
-          attributes: ['price_per_kg'],
-        },
-      ],
-      raw: true,
-      nest: true,
-    });
-
-    // Update total_amount
-    await newOrder.update({ total_amount: totalAmount });
-
     res.status(201).json(newOrder);
   } catch (error) {
     console.error('Error creating order:', error);
@@ -88,16 +94,17 @@ exports.createOrder = async (req, res) => {
 };
 
 /**
- * Updates an existing order by ID.
+ * Updates an existing order identified by its ID with the provided data.
  */
 exports.updateOrder = async (req, res) => {
   try {
+    const { status } = req.body;
     const order = await Order.findByPk(req.params.id);
     if (!order) {
       return res.status(404).json({ error: 'Order not found' });
     }
-    const { status, total_amount } = req.body;
-    await order.update({ status, total_amount });
+    order.status = status || order.status;
+    await order.save();
     res.json(order);
   } catch (error) {
     console.error('Error updating order:', error);
@@ -106,7 +113,7 @@ exports.updateOrder = async (req, res) => {
 };
 
 /**
- * Deletes an order by ID.
+ * Deletes an order identified by its ID.
  */
 exports.deleteOrder = async (req, res) => {
   try {
@@ -115,7 +122,7 @@ exports.deleteOrder = async (req, res) => {
       return res.status(404).json({ error: 'Order not found' });
     }
     await order.destroy();
-    res.status(200).json({ message: 'Order deleted successfully' });
+    res.json({ message: 'Order deleted successfully' });
   } catch (error) {
     console.error('Error deleting order:', error);
     res.status(500).json({ error: 'Internal Server Error' });

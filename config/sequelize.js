@@ -14,5 +14,5 @@ const sequelize = new Sequelize(
   }
 );
 
-// Export the Sequelize instance
+// Export the Sequelize instance for use in models and controllers
 module.exports = sequelize;

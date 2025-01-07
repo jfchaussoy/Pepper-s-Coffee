@@ -1,0 +1,45 @@
+# Retrieve all orders
+GET http://localhost:3000/api/orders
+Accept: application/json
+
+###
+
+# Retrieve an order by ID
+GET http://localhost:3000/api/orders/1
+Accept: application/json
+
+###
+
+# Create a new order
+POST http://localhost:3000/api/orders
+Content-Type: application/json
+
+{
+  "customer_id": 2,
+  "items": [
+    {
+      "coffee_id": 2,
+      "quantity": 3
+    },
+    {
+      "coffee_id": 3,
+      "quantity": 1
+    }
+  ]
+}
+
+###
+
+# Update an existing order
+PUT http://localhost:3000/api/orders/2
+Content-Type: application/json
+
+{
+  "status": "completed"
+}
+
+###
+
+# Delete an order
+DELETE http://localhost:3000/api/orders/1
+Accept: application/json

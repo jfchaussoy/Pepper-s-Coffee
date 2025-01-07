@@ -1,7 +1,8 @@
-const Customer = require('../models/customerModel');
+const { Customer } = require('../models/indexModels');
+const bcrypt = require('bcrypt');
 
 /**
- * Retrieves all customers.
+ * Retrieves all customers from the database.
  */
 exports.getAllCustomers = async (req, res) => {
   try {
@@ -14,7 +15,7 @@ exports.getAllCustomers = async (req, res) => {
 };
 
 /**
- * Retrieves a customer by ID.
+ * Retrieves a specific customer by its ID.
  */
 exports.getCustomerById = async (req, res) => {
   try {
@@ -30,12 +31,18 @@ exports.getCustomerById = async (req, res) => {
 };
 
 /**
- * Creates a new customer.
+ * Creates a new customer with the provided data.
  */
 exports.createCustomer = async (req, res) => {
   try {
     const { email, password, address } = req.body;
-    const newCustomer = await Customer.create({ email, password, address });
+    // Hash the password before saving
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newCustomer = await Customer.create({
+      email,
+      password: hashedPassword,
+      address,
+    });
     res.status(201).json(newCustomer);
   } catch (error) {
     console.error('Error creating customer:', error);
@@ -44,16 +51,22 @@ exports.createCustomer = async (req, res) => {
 };
 
 /**
- * Updates an existing customer by ID.
+ * Updates an existing customer identified by its ID with the provided data.
  */
 exports.updateCustomer = async (req, res) => {
   try {
+    const { email, password, address } = req.body;
     const customer = await Customer.findByPk(req.params.id);
     if (!customer) {
       return res.status(404).json({ error: 'Customer not found' });
     }
-    const { email, password, address } = req.body;
-    await customer.update({ email, password, address });
+    if (email) customer.email = email;
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      customer.password = hashedPassword;
+    }
+    if (address) customer.address = address;
+    await customer.save();
     res.json(customer);
   } catch (error) {
     console.error('Error updating customer:', error);
@@ -62,7 +75,7 @@ exports.updateCustomer = async (req, res) => {
 };
 
 /**
- * Deletes a customer by ID.
+ * Deletes a customer identified by its ID.
  */
 exports.deleteCustomer = async (req, res) => {
   try {
@@ -71,7 +84,7 @@ exports.deleteCustomer = async (req, res) => {
       return res.status(404).json({ error: 'Customer not found' });
     }
     await customer.destroy();
-    res.status(200).json({ message: 'Customer deleted successfully' });
+    res.json({ message: 'Customer deleted successfully' });
   } catch (error) {
     console.error('Error deleting customer:', error);
     res.status(500).json({ error: 'Internal Server Error' });

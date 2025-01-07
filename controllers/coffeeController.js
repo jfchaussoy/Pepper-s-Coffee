@@ -1,9 +1,9 @@
 const { Coffee, Category } = require('../models/indexModels');
 
 /**
- * Retrieves all coffees from the database.
+ * Retrieves all coffees from the database, including their category information.
  */
-exports.getAllCoffees = async (req, res) => {
+exports.getAllCoffees = async (_, res) => {
   try {
     const coffees = await Coffee.findAll({
       include: {
@@ -24,7 +24,7 @@ exports.getAllCoffees = async (req, res) => {
 };
 
 /**
- * Retrieves a specific coffee by ID.
+ * Retrieves a specific coffee by its ID, including category information.
  */
 exports.getCoffeeById = async (req, res) => {
   try {
@@ -50,7 +50,7 @@ exports.getCoffeeById = async (req, res) => {
 };
 
 /**
- * Creates a new coffee entry.
+ * Creates a new coffee entry with the provided data.
  */
 exports.createCoffee = async (req, res) => {
   try {
@@ -72,24 +72,23 @@ exports.createCoffee = async (req, res) => {
 };
 
 /**
- * Updates an existing coffee by ID.
+ * Updates an existing coffee identified by its ID with the provided data.
  */
 exports.updateCoffee = async (req, res) => {
   try {
+    const { name, description, reference, origin_country, price_per_kg, available, category_id } = req.body;
     const coffee = await Coffee.findByPk(req.params.id);
     if (!coffee) {
       return res.status(404).json({ error: 'Coffee not found' });
     }
-    const { name, description, reference, origin_country, price_per_kg, available, category_id } = req.body;
-    await coffee.update({
-      name,
-      description,
-      reference,
-      origin_country,
-      price_per_kg,
-      available,
-      category_id
-    });
+    coffee.name = name || coffee.name;
+    coffee.description = description || coffee.description;
+    coffee.reference = reference || coffee.reference;
+    coffee.origin_country = origin_country || coffee.origin_country;
+    coffee.price_per_kg = price_per_kg || coffee.price_per_kg;
+    coffee.available = available !== undefined ? available : coffee.available;
+    coffee.category_id = category_id || coffee.category_id;
+    await coffee.save();
     res.json(coffee);
   } catch (error) {
     console.error('Error updating coffee:', error);
@@ -98,7 +97,7 @@ exports.updateCoffee = async (req, res) => {
 };
 
 /**
- * Deletes a coffee by ID.
+ * Deletes a coffee identified by its ID.
  */
 exports.deleteCoffee = async (req, res) => {
   try {
@@ -107,7 +106,7 @@ exports.deleteCoffee = async (req, res) => {
       return res.status(404).json({ error: 'Coffee not found' });
     }
     await coffee.destroy();
-    res.status(200).json({ message: 'Coffee deleted successfully' });
+    res.json({ message: 'Coffee deleted successfully' });
   } catch (error) {
     console.error('Error deleting coffee:', error);
     res.status(500).json({ error: 'Internal Server Error' });

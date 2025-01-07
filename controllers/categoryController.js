@@ -1,8 +1,6 @@
-const Category = require('../models/categoryModel');
+const { Category } = require('../models/indexModels');
 
-/**
- * Retrieves all categories.
- */
+// Retrieve all categories from the database
 exports.getAllCategories = async (req, res) => {
   try {
     const categories = await Category.findAll();
@@ -13,9 +11,7 @@ exports.getAllCategories = async (req, res) => {
   }
 };
 
-/**
- * Retrieves a category by ID.
- */
+// Retrieve a specific category by its ID
 exports.getCategoryById = async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id);
@@ -29,13 +25,10 @@ exports.getCategoryById = async (req, res) => {
   }
 };
 
-/**
- * Creates a new category.
- */
+// Create a new category with the provided data
 exports.createCategory = async (req, res) => {
   try {
-    const { name } = req.body;
-    const newCategory = await Category.create({ name });
+    const newCategory = await Category.create(req.body);
     res.status(201).json(newCategory);
   } catch (error) {
     console.error('Error creating category:', error);
@@ -43,17 +36,16 @@ exports.createCategory = async (req, res) => {
   }
 };
 
-/**
- * Updates an existing category by ID.
- */
+// Update an existing category identified by its ID with the provided data
 exports.updateCategory = async (req, res) => {
   try {
+    const { name } = req.body;
     const category = await Category.findByPk(req.params.id);
     if (!category) {
       return res.status(404).json({ error: 'Category not found' });
     }
-    const { name } = req.body;
-    await category.update({ name });
+    category.name = name || category.name;
+    await category.save();
     res.json(category);
   } catch (error) {
     console.error('Error updating category:', error);
@@ -61,9 +53,7 @@ exports.updateCategory = async (req, res) => {
   }
 };
 
-/**
- * Deletes a category by ID.
- */
+// Delete a category identified by its ID
 exports.deleteCategory = async (req, res) => {
   try {
     const category = await Category.findByPk(req.params.id);
@@ -71,7 +61,7 @@ exports.deleteCategory = async (req, res) => {
       return res.status(404).json({ error: 'Category not found' });
     }
     await category.destroy();
-    res.status(200).json({ message: 'Category deleted successfully' });
+    res.json({ message: 'Category deleted successfully' });
   } catch (error) {
     console.error('Error deleting category:', error);
     res.status(500).json({ error: 'Internal Server Error' });

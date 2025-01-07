@@ -1,6 +1,7 @@
+// Import necessary modules and routes
 const express = require('express');
 const bodyParser = require('body-parser');
-const routes = require('./routes/indexRoutes');
+const routes = require('./route/indexRoutes');
 
 const app = express();
 
@@ -10,12 +11,13 @@ app.use(express.static('public'));
 // Middleware to parse JSON requests
 app.use(bodyParser.json());
 
-// Use all routes (pages and API)
+// Use all defined routes for handling requests
 app.use('/', routes);
 
-// 404 Error handling
+// Handle 404 errors for undefined routes
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
 });
 
+// Export the configured app
 module.exports = app;

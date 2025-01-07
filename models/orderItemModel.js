@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 
+// Define the OrderItem model with its attributes and configurations
 module.exports = (sequelize) => {
   const OrderItem = sequelize.define(
     'OrderItem',

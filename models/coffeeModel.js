@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 
+// Define the Coffee model with its attributes and configurations
 module.exports = (sequelize) => {
   const Coffee = sequelize.define('Coffee', {
     id: {
@@ -37,7 +38,7 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'categories',
+        model: 'category',
         key: 'id',
       },
     },

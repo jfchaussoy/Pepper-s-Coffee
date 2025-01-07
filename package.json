@@ -2,7 +2,7 @@
   "name": "pepper-s-coffee",
   "version": "1.0.0",
   "description": "Pepper's Coffee est un détaillant de café et de produits associés à la consommation du café basé dans la ville du Trou d'Enfer.",
-  "main": "index.js",
+  "main": "app.js",
   "directories": {
     "doc": "docs"
   },

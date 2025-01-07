@@ -1,7 +1,7 @@
 const request = require('supertest');
-const app = require('../index');
-const sequelize = require('../config/sequelize');
-const { Coffee, Category } = require('../models/indexModels');
+const app = require('../src/app');
+const sequelize = require('../src/config/sequelize');
+const { Coffee, Category } = require('../src/models/indexModels');
 const { beforeAll, afterAll, describe, it, expect } = require('@jest/globals');
 
 beforeAll(async () => {

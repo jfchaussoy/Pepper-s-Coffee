@@ -1,5 +1,5 @@
 // Import the configured application
-const app = require('./index');
+const app = require('./src/app');
 
 // Set the port from environment variables or default to 3000
 const PORT = process.env.PORT || 3000;

@@ -16,5 +16,5 @@ describe('XSS Protection Tests', () => {
 
     expect(response.status).toBe(201);
     expect(response.body.address).toBe('&lt;script&gt;alert("XSS")&lt;/script&gt;');
-  }, 10000); // Timeout à 10 secondes
+  }, 10000);
 });

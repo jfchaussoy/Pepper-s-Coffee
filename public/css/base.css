@@ -1,0 +1,21 @@
+/* Base styles for the entire website */
+
+/* Set base font properties and background */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(var(--color-brown) 0%, var(--color-dark) 100%);
+  color: var(--color-cream);
+  width: 80%;
+  min-height: 100vh;
+  padding: 4rem 0;
+  margin: 0 auto;
+}
+
+/* Ensure the main content area accounts for fixed header */
+main {
+  width: 80%;
+  margin: 0 auto;
+  padding: 6rem 0 4rem 0;
+}

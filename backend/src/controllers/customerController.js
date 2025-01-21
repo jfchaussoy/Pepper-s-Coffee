@@ -1,9 +1,10 @@
+// Import the Customer model from the models directory
 const { Customer } = require('../models/indexModels');
 const bcrypt = require('bcrypt');
 const asyncHandler = require('../middleware/asyncHandler');
 
 /**
- * Récupère tous les clients de la base de données.
+ * Retrieves all customers from the database.
  */
 exports.getAllCustomers = asyncHandler(async (req, res) => {
   const customers = await Customer.findAll();
@@ -11,7 +12,7 @@ exports.getAllCustomers = asyncHandler(async (req, res) => {
 });
 
 /**
- * Récupère un client spécifique par ID.
+ * Retrieves a specific customer by ID.
  */
 exports.getCustomerById = asyncHandler(async (req, res) => {
   const customer = await Customer.findByPk(req.params.id);
@@ -22,12 +23,12 @@ exports.getCustomerById = asyncHandler(async (req, res) => {
 });
 
 /**
- * Crée un nouveau client avec les données fournies.
+ * Creates a new customer with the provided data.
  */
 exports.createCustomer = asyncHandler(async (req, res) => {
   const { email, password, address } = req.body;
   
-  // Vérifier si l'email existe déjà
+  // Check if the email already exists
   const existingCustomer = await Customer.findOne({ where: { email } });
   if (existingCustomer) {
     return res.status(400).json({ error: 'Email already exists' });
@@ -48,7 +49,7 @@ exports.createCustomer = asyncHandler(async (req, res) => {
 });
 
 /**
- * Met à jour un client existant identifié par son ID avec les données fournies.
+ * Updates an existing customer identified by ID with the provided data.
  */
 exports.updateCustomer = asyncHandler(async (req, res) => {
   const customer = await Customer.findByPk(req.params.id);
@@ -58,7 +59,7 @@ exports.updateCustomer = asyncHandler(async (req, res) => {
 
   const { email, password, address } = req.body;
 
-  // Vérifier si l'email existe déjà pour un autre client
+  // Check if email exists for another customer
   if (email && email !== customer.email) {
     const existingCustomer = await Customer.findOne({ where: { email } });
     if (existingCustomer) {
@@ -80,7 +81,7 @@ exports.updateCustomer = asyncHandler(async (req, res) => {
 });
 
 /**
- * Supprime un client identifié par son ID.
+ * Deletes a customer identified by its ID.
  */
 exports.deleteCustomer = asyncHandler(async (req, res) => {
   const customer = await Customer.findByPk(req.params.id);
@@ -88,5 +89,5 @@ exports.deleteCustomer = asyncHandler(async (req, res) => {
     return res.status(404).json({ error: 'Customer not found' });
   }
   await customer.destroy();
-  res.status(204).send(); // Renvoie 204 No Content
+  res.status(204).send(); // Return 204 No Content
 });

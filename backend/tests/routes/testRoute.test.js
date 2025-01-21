@@ -15,5 +15,5 @@ describe('Test Route', () => {
     const response = await request(app).get('/api/test');
     expect(response.status).toBe(200);
     expect(response.body).toEqual({ message: 'API is working!' });
-  }, 20000); // Essayez avec 20 secondes, mais optimisez le code serveur si possible
+  }, 20000); 
 });

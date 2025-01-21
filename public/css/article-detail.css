@@ -1,0 +1,53 @@
+/* Styles specific to the Article Detail page */
+
+/* Product Detail Section */
+#product-detail {
+  padding: 4rem 2rem;
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+}
+
+#product-detail h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.product-detail-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.product-detail-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.product-detail-info {
+  text-align: center;
+}
+
+.product-detail-name {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.product-detail-description {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.product-detail-price {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.product-detail-info .btn {
+  display: inline-block;
+}

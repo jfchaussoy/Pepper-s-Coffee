@@ -3,7 +3,6 @@ const app = require('../src/app');
 
 describe('Oversized Input Tests', () => {
   test('Should reject inputs with excessive length for email', async () => {
-    // Créer un email valide mais trop long (> 255 caractères)
     const longEmail = 'test@' + 'a'.repeat(251) + '.com';
     
     const response = await request(app)

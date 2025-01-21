@@ -1,5 +1,5 @@
 /**
- * Middleware pour gérer les erreurs asynchrones
+ * Middleware 
  * @param {Function} fn - Fonction asynchrone à wrapper
  * @returns {Function} Middleware Express
  */

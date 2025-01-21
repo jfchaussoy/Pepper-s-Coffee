@@ -1,8 +1,9 @@
+// Import Coffee and Category models from the models directory
 const { Coffee, Category } = require('../models/indexModels');
 const asyncHandler = require('../middleware/asyncHandler');
 
 /**
- * Récupère tous les cafés, y compris les informations de catégorie.
+ * Retrieves all coffees, including category information.
  */
 exports.getAllCoffees = asyncHandler(async (_, res) => {
   const coffees = await Coffee.findAll({
@@ -11,7 +12,7 @@ exports.getAllCoffees = asyncHandler(async (_, res) => {
       as: 'category'
     }
   });
-  // Ajouter l'URL complète de l'image basée sur la référence
+  // Add the complete image URL based on the reference
   const coffeesWithImageUrl = coffees.map(coffee => ({
     ...coffee.toJSON(),
     imageUrl: `/images/coffees/${coffee.reference}.webp`
@@ -20,7 +21,7 @@ exports.getAllCoffees = asyncHandler(async (_, res) => {
 });
 
 /**
- * Récupère un café spécifique par ID, y compris les informations de catégorie.
+ * Retrieves a specific coffee by ID, including category information.
  */
 exports.getCoffeeById = asyncHandler(async (req, res) => {
   const coffee = await Coffee.findByPk(req.params.id, {
@@ -32,7 +33,7 @@ exports.getCoffeeById = asyncHandler(async (req, res) => {
   if (!coffee) {
     return res.status(404).json({ error: 'Coffee not found' });
   }
-  // Ajouter l'URL complète de l'image basée sur la référence
+  // Add the complete image URL based on the reference
   const coffeeWithImageUrl = {
     ...coffee.toJSON(),
     imageUrl: `/images/coffees/${coffee.reference}.webp`
@@ -41,7 +42,7 @@ exports.getCoffeeById = asyncHandler(async (req, res) => {
 });
 
 /**
- * Crée une nouvelle entrée de café avec les données fournies.
+ * Creates a new coffee entry with the provided data.
  */
 exports.createCoffee = asyncHandler(async (req, res) => {
   const { 
@@ -54,7 +55,7 @@ exports.createCoffee = asyncHandler(async (req, res) => {
     category_id 
   } = req.body;
 
-  // Vérifier si la catégorie existe
+  // Check if the category exists
   const category = await Category.findByPk(category_id);
   if (!category) {
     return res.status(404).json({ error: 'Category not found' });
@@ -74,7 +75,7 @@ exports.createCoffee = asyncHandler(async (req, res) => {
 });
 
 /**
- * Met à jour un café existant identifié par son ID avec les données fournies.
+ * Updates an existing coffee identified by its ID with the provided data.
  */
 exports.updateCoffee = asyncHandler(async (req, res) => {
   const coffee = await Coffee.findByPk(req.params.id);
@@ -104,7 +105,7 @@ exports.updateCoffee = asyncHandler(async (req, res) => {
 });
 
 /**
- * Supprime un café identifié par son ID.
+ * Deletes a coffee identified by its ID.
  */
 exports.deleteCoffee = asyncHandler(async (req, res) => {
   const coffee = await Coffee.findByPk(req.params.id);
@@ -112,6 +113,5 @@ exports.deleteCoffee = asyncHandler(async (req, res) => {
     return res.status(404).json({ error: 'Coffee not found' });
   }
   await coffee.destroy();
-  // Correction : retour de 204 No Content
-  res.status(204).send(); // Renvoie 204 No Content
+  res.status(204).send(); // Return 204 No Content
 });

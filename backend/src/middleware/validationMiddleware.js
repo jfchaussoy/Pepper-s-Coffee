@@ -1,6 +1,7 @@
+// Import necessary validators from express-validator
 const { body, validationResult } = require('express-validator');
 
-// Fonction réutilisable pour la validation des erreurs
+// Reusable function for error validation
 const validateErrors = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -9,7 +10,7 @@ const validateErrors = (req, res, next) => {
   next();
 };
 
-// Validation pour la création de client
+// Validation for customer creation
 exports.validateCustomer = [
   body('email')
     .exists().withMessage('Customer.email cannot be null').bail()
@@ -24,7 +25,7 @@ exports.validateCustomer = [
   validateErrors
 ];
 
-// Validation pour la mise à jour de client
+// Validation for customer update
 exports.validateCustomerUpdate = [
   body('email')
     .optional()

@@ -11,7 +11,7 @@ describe('Data Format Validation Tests', () => {
 
     expect(response.status).toBe(400);
     expect(response.body.errors).toEqual(['Customer.email cannot be null']);
-  }, 10000); // Timeout à 10 secondes
+  }, 10000); 
 });
 
 describe('XSS Protection Tests', () => {

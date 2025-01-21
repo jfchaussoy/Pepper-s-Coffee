@@ -5,7 +5,7 @@
 function errorHandler(err, req, res, next) {
   console.error('Error:', err);
 
-  // Gestion des erreurs de validation Sequelize
+  // Handle Sequelize validation errors
   if (err.name === 'SequelizeValidationError') {
     return res.status(400).json({
       error: 'Validation Error',
@@ -13,7 +13,7 @@ function errorHandler(err, req, res, next) {
     });
   }
 
-  // Gestion des erreurs de clé étrangère
+  // Handle foreign key constraint errors
   if (err.name === 'SequelizeForeignKeyConstraintError') {
     return res.status(400).json({
       error: 'Invalid Reference',

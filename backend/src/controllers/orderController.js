@@ -1,8 +1,9 @@
+// Import necessary models from the models directory
 const { Order, OrderItem, Customer, Coffee } = require('../models/indexModels');
 const asyncHandler = require('../middleware/asyncHandler');
 
 /**
- * Récupère toutes les commandes, y compris les éléments de commande et les informations sur le café.
+ * Retrieves all orders, including order items and coffee information.
  */
 exports.getAllOrders = asyncHandler(async (req, res) => {
   try {
@@ -19,6 +20,7 @@ exports.getAllOrders = asyncHandler(async (req, res) => {
   }
 });
 
+// Note: There's a duplicate function here. This one should be removed or renamed if intended to be different.
 exports.getOrderById = asyncHandler(async (req, res) => {
   try {
     const order = await Order.findByPk(req.params.id, {
@@ -36,8 +38,9 @@ exports.getOrderById = asyncHandler(async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 /**
- * Récupère une commande spécifique par ID, y compris les éléments de commande et les informations sur le café.
+ * Retrieves a specific order by ID, including order items and coffee information.
  */
 exports.getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findByPk(req.params.id, {
@@ -55,25 +58,25 @@ exports.getOrderById = asyncHandler(async (req, res) => {
 });
 
 /**
- * Crée une nouvelle commande avec les données fournies.
+ * Creates a new order with the provided data.
  */
 exports.createOrder = asyncHandler(async (req, res) => {
   const { customer_id, order_items } = req.body;
 
-  // Vérifier si le client existe
+  // Check if the customer exists
   const customer = await Customer.findByPk(customer_id);
   if (!customer) {
     return res.status(404).json({ error: 'Customer not found' });
   }
 
-  // Créer la commande
+  // Create the order
   const order = await Order.create({
     customer_id,
     status: 'pending',
     total_amount: 0
   });
 
-  // Créer les éléments de commande
+  // Create the order items
   if (order_items && order_items.length > 0) {
     let totalAmount = 0;
     for (const item of order_items) {
@@ -88,7 +91,7 @@ exports.createOrder = asyncHandler(async (req, res) => {
         quantity: item.quantity
       });
     }
-    // Mettre à jour le montant total de la commande
+    // Update the total amount of the order
     order.total_amount = totalAmount;
     await order.save();
   }
@@ -97,7 +100,7 @@ exports.createOrder = asyncHandler(async (req, res) => {
 });
 
 /**
- * Met à jour une commande existante identifiée par son ID avec les données fournies.
+ * Updates an existing order identified by its ID with the provided data.
  */
 exports.updateOrder = asyncHandler(async (req, res) => {
   const { status } = req.body;
@@ -111,7 +114,7 @@ exports.updateOrder = asyncHandler(async (req, res) => {
 });
 
 /**
- * Supprime une commande identifiée par son ID.
+ * Deletes an order identified by its ID.
  */
 exports.deleteOrder = asyncHandler(async (req, res) => {
   try {

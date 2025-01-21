@@ -1,0 +1,110 @@
+/* Styles specific to the Catalog page */
+
+/* Catalog Section */
+#catalog {
+  padding: 4rem 2rem;
+  background-color: var(--color-brown);
+  color: var(--color-cream);
+}
+
+#catalog h1 {
+  padding: 4.5rem;
+  background-image: url('../images/coffees/256505890.webp');
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.5);
+  color: #FFFFFF; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+}
+
+.product-list {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 5rem;
+}
+
+.only-show-three .product-item:nth-child(n+4) {
+  display: none;
+}
+
+.product-item {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+              rgba(0, 0, 0, 0.12) 0px -12px 30px,
+              rgba(0, 0, 0, 0.12) 0px 4px 6px,
+              rgba(0, 0, 0, 0.17) 0px 12px 13px,
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 0.5rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--color-orange);
+}
+
+.product-image {
+  height: 12rem;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.product-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.product-name {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.product-origin {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#view-all-products-button {
+  display: block;
+  margin: 2rem auto 0 auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  #catalog h1 {
+    padding: 3rem;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+
+  .product-list {
+    gap: 1.5rem;
+  }
+
+  .product-item {
+    width: 15rem;
+  }
+
+  .product-details {
+    padding: 1.5rem;
+  }
+
+  .product-name {
+    font-size: 1.2rem;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+}

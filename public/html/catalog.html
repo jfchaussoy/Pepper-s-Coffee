@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- Meta Information -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Découvrez le catalogue de Pepper's Coffee, votre spécialiste du café de qualité à Hauts-de-Cloques">
+
+  <!-- Page Title -->
+  <title>Pepper's Coffee | Catalogue</title>
+
+  <!-- Common Stylesheets -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/catalog.css">
+  <link rel="stylesheet" href="/css/article-detail.css">
+</head>
+
+<body>
+  <header>
+    <nav id="navigation-menu">
+      <a href="/" class="logo-link">
+        <img src="/images/logo.svg" alt="Logo Pepper's Coffee" class="logo">
+        <span class="brand-name">Pepper's Coffee</span>
+      </a>
+      <button id="nav-toggle-button" aria-expanded="false" aria-label="Afficher les liens de navigation">
+        <!-- Icon Open -->
+        <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 6H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M3 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        <!-- Icon Close -->
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path d="M6 18L18 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+
+      <ul class="navigation-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/catalog">Catalogue</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Catalog Section -->
+    <section id="catalog">
+      <h1>Notre Catalogue</h1>
+
+      <div class="product-list" id="product-list">
+        <!-- Dynamic Coffee Items Will Be Injected Here -->
+      </div>
+
+      <button class="btn" id="view-all-products-button">Voir tous les produits</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>O'Clock & Pepper Brothers - Tous droits réservés</p>
+  </footer>
+
+  <!-- Common Scripts -->
+  <script defer src="/js/header.js"></script>
+  <script defer src="/js/catalog.js"></script>
+</body>
+
+</html>

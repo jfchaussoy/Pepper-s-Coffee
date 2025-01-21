@@ -1,0 +1,153 @@
+/* Layout-specific styles including header and footer */
+
+/* Header Styles */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 10%;
+  background-color: white;
+  z-index: 1000;
+}
+
+/* Logo Link */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+  color: var(--color-dark);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+.brand-name {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .brand-name {
+    display: inline;
+  }
+}
+
+/* Navigation Styles */
+#navigation-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navigation-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navigation-links li a {
+  font-size: 1.3rem;
+  color: var(--color-cream);
+}
+
+.navigation-links li a:hover,
+.navigation-links li a:focus {
+  color: var(--color-dark);
+}
+
+/* Footer Styles */
+footer {
+  text-align: right;
+  padding: 2rem;
+  background-color: var(--color-dark);
+  color: var(--color-cream);
+}
+
+#nav-toggle-button {
+  display: none; 
+  background: none;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  color: var(--color-dark);
+  position: relative;
+  z-index: 2001; 
+}
+
+#nav-toggle-button .icon-close {
+  display: none;
+}
+
+@media screen and (max-width: 1280px) {
+  #nav-toggle-button {
+    display: block;
+  }
+
+  .navigation-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  #navigation-menu.is-expanded #nav-toggle-button .icon-hamburger {
+    display: none;
+  }
+
+  #navigation-menu.is-expanded #nav-toggle-button .icon-close {
+    display: block;
+  }
+
+  #navigation-menu.is-expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+    flex-direction: column;
+  }
+
+  #navigation-menu.is-expanded .navigation-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  #navigation-menu.is-expanded .navigation-links a {
+    color: var(--color-dark); 
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  #nav-toggle-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+#nav-toggle-button svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

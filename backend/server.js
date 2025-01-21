@@ -7,11 +7,9 @@ const NODE_ENV = process.env.NODE_ENV || 'development';
 
 async function startServer() {
   try {
-    // Vérifier la connexion à la base de données
     await sequelize.authenticate();
     console.log('✅ Connexion à la base de données établie');
 
-    // Démarrer le serveur
     app.listen(PORT, () => {
       console.log(`🚀 Serveur démarré sur le port ${PORT} en mode ${NODE_ENV}`);
     });

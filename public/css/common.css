@@ -1,0 +1,55 @@
+/* Common styles used across multiple components */
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.button, .btn, .btn-outline {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn {
+  padding: 1rem 1.5rem;
+  color: var(--color-cream);
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-dark);
+}
+
+.btn:hover,
+.btn:focus {
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+}
+
+.btn-outline {
+  padding: 0.5rem 1rem;
+  color: var(--color-cream);
+  border: 1px solid var(--color-cream);
+  background-color: transparent;
+}
+
+.btn-outline:hover,
+.btn-outline:focus {
+  color: var(--color-orange);
+  border-color: var(--color-orange);
+  background-color: var(--color-cream);
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding: 0;
+}

@@ -1,8 +1,9 @@
+// Import necessary models from the models directory
 const { OrderItem, Order, Coffee } = require('../models/indexModels');
 const asyncHandler = require('../middleware/asyncHandler');
 
 /**
- * Récupère tous les éléments de commande
+ * Retrieves all order items
  */
 exports.getAllOrderItems = asyncHandler(async (req, res) => {
   const orderItems = await OrderItem.findAll({
@@ -15,7 +16,7 @@ exports.getAllOrderItems = asyncHandler(async (req, res) => {
 });
 
 /**
- * Récupère un élément de commande par ID
+ * Retrieves an order item by ID
  */
 exports.getOrderItemById = asyncHandler(async (req, res) => {
   const orderItem = await OrderItem.findByPk(req.params.id, {
@@ -33,7 +34,7 @@ exports.getOrderItemById = asyncHandler(async (req, res) => {
 });
 
 /**
- * Crée un nouvel élément de commande
+ * Creates a new order item
  */
 exports.createOrderItem = asyncHandler(async (req, res) => {
   const { order_id, coffee_id, quantity } = req.body;
@@ -59,7 +60,7 @@ exports.createOrderItem = asyncHandler(async (req, res) => {
 });
 
 /**
- * Met à jour un élément de commande
+ * Updates an order item
  */
 exports.updateOrderItem = asyncHandler(async (req, res) => {
   const orderItem = await OrderItem.findByPk(req.params.id);
@@ -73,7 +74,7 @@ exports.updateOrderItem = asyncHandler(async (req, res) => {
 });
 
 /**
- * Supprime un élément de commande
+ * Deletes an order item
  */
 exports.deleteOrderItem = asyncHandler(async (req, res) => {
   const orderItem = await OrderItem.findByPk(req.params.id);

@@ -31,5 +31,5 @@ describe('GET /api/coffees', () => {
     expect(Array.isArray(response.body)).toBe(true);
     expect(response.body.length).toBeGreaterThan(0);
     expect(response.body[0]).toHaveProperty('name', 'Test Coffee');
-  }, 10000); // Timeout à 10 secondes
+  }, 10000); 
 });

@@ -1,8 +1,9 @@
+// Import the Category model from the models directory
 const { Category } = require('../models/indexModels');
 const asyncHandler = require('../middleware/asyncHandler');
 
 /**
- * Récupère toutes les catégories de la base de données.
+ * Retrieves all categories from the database.
  */
 exports.getAllCategories = asyncHandler(async (req, res) => {
   const categories = await Category.findAll();
@@ -10,7 +11,7 @@ exports.getAllCategories = asyncHandler(async (req, res) => {
 });
 
 /**
- * Récupère une catégorie spécifique par ID.
+ * Retrieves a specific category by its ID.
  */
 exports.getCategoryById = asyncHandler(async (req, res) => {
   const category = await Category.findByPk(req.params.id);
@@ -21,7 +22,7 @@ exports.getCategoryById = asyncHandler(async (req, res) => {
 });
 
 /**
- * Crée une nouvelle catégorie avec les données fournies.
+ * Creates a new category with the provided data.
  */
 exports.createCategory = asyncHandler(async (req, res) => {
   const newCategory = await Category.create(req.body);
@@ -29,7 +30,7 @@ exports.createCategory = asyncHandler(async (req, res) => {
 });
 
 /**
- * Met à jour une catégorie existante identifiée par son ID avec les données fournies.
+ * Updates an existing category identified by its ID with the provided data.
  */
 exports.updateCategory = asyncHandler(async (req, res) => {
   const { name } = req.body;
@@ -37,13 +38,13 @@ exports.updateCategory = asyncHandler(async (req, res) => {
   if (!category) {
     return res.status(404).json({ error: 'Category not found' });
   }
-  category.name = name || category.name;
+  category.name = name || category.name; // Update name if provided, otherwise keep the existing one
   await category.save();
   res.json(category);
 });
 
 /**
- * Supprime une catégorie identifiée par son ID.
+ * Deletes a category identified by its ID.
  */
 exports.deleteCategory = asyncHandler(async (req, res) => {
   const category = await Category.findByPk(req.params.id);
@@ -51,5 +52,5 @@ exports.deleteCategory = asyncHandler(async (req, res) => {
     return res.status(404).json({ error: 'Category not found' });
   }
   await category.destroy();
-  res.status(204).send(); // Renvoie 204 No Content
+  res.status(204).send(); // Send 204 No Content status
 });

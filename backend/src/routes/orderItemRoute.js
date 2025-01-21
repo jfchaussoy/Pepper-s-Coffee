@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const orderItemController = require('../controllers/orderItemController');
 
-// Définir les routes CRUD pour les order-items
+// Routes from CRUD orderItemController
 router.get('/', orderItemController.getAllOrderItems);
 router.get('/:id', orderItemController.getOrderItemById);
 router.post('/', orderItemController.createOrderItem);

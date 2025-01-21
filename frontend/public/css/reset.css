@@ -1,0 +1,56 @@
+/* Directory: frontend/public/css
+   File: reset.css
+   Description (Description):
+   Basic reset to avoid browser inconsistencies. (Réinitialisation basique) */
+
+/* (EN) Reset box-sizing for all elements (FR) Réinitialisation du box-sizing pour tous éléments */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* (EN) Remove default margin and padding (FR) Suppression margin/padding par défaut */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* (EN) Remove list styles (FR) Suppression style de liste */
+ul, ol {
+  list-style: none;
+}
+
+/* (EN) Remove default link underline (FR) Retrait du soulignement par défaut */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* (EN) Remove default button styles (FR) Suppression style de bouton par défaut */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* (EN) Remove default button styles (FR) Suppression style de bouton par défaut */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* (EN) Remove default button styles (FR) Suppression style de bouton par défaut */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* (EN) Remove default button styles (FR) Suppression style de bouton par défaut */
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* (EN) Remove default button styles (FR) Suppression style de bouton par défaut */
+#root, #__next {
+  isolation: isolate;
+}

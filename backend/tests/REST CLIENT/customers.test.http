@@ -1,0 +1,38 @@
+# Retrieve all customers
+GET http://localhost:3000/api/customers
+Accept: application/json
+
+###
+
+# Retrieve a customer by ID
+GET http://localhost:3000/api/customers/1
+Accept: application/json
+
+###
+
+# Create a new customer
+POST http://localhost:3000/api/customers
+Content-Type: application/json
+
+{
+  "email": "john.doe2@example.com",
+  "password": "securepassword",
+  "address": "123 Coffee St."
+}
+
+###
+
+# Update an existing customer
+PUT http://localhost:3000/api/customers/2
+Content-Type: application/json
+
+{
+  "email": "john.doe@newdomain.com",
+  "address": "456 Espresso Ave."
+}
+
+###
+
+# Delete a customer
+DELETE http://localhost:3000/api/customers/2
+Accept: application/json

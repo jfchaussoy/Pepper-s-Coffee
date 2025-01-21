@@ -1,0 +1,55 @@
+# Logs et debugging
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Dépendances
+node_modules/
+package-lock.json
+
+# Build et distribution
+dist/
+dist-ssr/
+build/
+*.local
+
+# Environnement
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Coverage des tests
+coverage/
+.nyc_output/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# IDE et éditeurs
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Fichiers temporaires
+*.tmp
+*.temp
+.cache/
+
+# Autres
+.docker/
+*.pid
+*.seed
+*.pid.lock

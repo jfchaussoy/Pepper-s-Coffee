@@ -1,0 +1,230 @@
+/* Directory: frontend/public/css
+   File: layout.css
+   Description (Description):
+   Layout-specific rules: header, footer, responsive nav. (Mise en page header/footer) */
+
+/* (EN) Header styles, fixed top (FR) Styles d'en-tête, position fixe */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 10%;
+  background-color: white;
+  z-index: 1000;
+}
+
+/* (EN) Logo link (FR) Lien du logo ) */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.5rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+/* (EN) Logo image (FR) Image du logo */
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+/* (EN) Brand name */
+.brand-name {
+  display: none;
+}
+/* (EN) Brand name */
+.brand-name {
+  display: inline; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}
+
+/* (EN) Navigation menu (FR) Menu de navigation */
+@media screen and (max-width: 1280px) {
+  #navigation-menu.is-expanded .logo-link,
+  #navigation-menu.is-expanded .brand-name {
+    display: none;
+  }
+}
+
+/* (EN) Brand name */
+@media screen and (min-width: 768px) {
+  .brand-name {
+    display: inline;
+  }
+}
+
+/* (EN) Navigation menu (FR) Menu de navigation */
+#navigation-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* (EN) Navigation links (FR) Liens de navigation */
+.navigation-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* (EN) Navigation links and list styles (FR) Styles des liens et de la liste de navigation */
+.navigation-links li a {
+  font-size: 1.3rem;
+  color: var(--color-cream);
+}
+
+/* (EN) Navigation links (FR) Liens de navigation */
+.navigation-links li a:hover,
+.navigation-links li a:focus {
+  color: #000000;
+}
+
+/* (EN) Footer styles (FR) Styles de pied de page */
+footer {
+  text-align: right;
+  padding: 2rem;
+}
+
+/* (EN) nav-toggle-button (FR) Bouton de bascule de navigation */
+#nav-toggle-button {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.8rem;
+  cursor: pointer;
+  color: #000000;
+  position: relative;
+  z-index: 2001;
+}
+
+/* (EN)nav-toggle-button and icon styles (FR) Styles de nav-toggle-button et d'icône */
+#nav-toggle-button .icon-close {
+  display: none;
+}
+
+/* (EN) nav-toggle-button and icon styles (FR) Styles de nav-toggle-button et d'icône */
+#navigation-menu.is-expanded #nav-toggle-button .icon-close {
+  display: block;
+}
+
+/* (EN) nav-toggle-button and icon styles (FR) Styles de nav-toggle-button et d'icône */
+@media screen and (max-width: 1280px) {
+  .navigation-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* (EN) 
+  #navigation-menu.is-expanded .navigation-links {
+    display: flex;
+  }
+
+  /* (EN)
+  .navigation-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  /* (EN) Footer styles (FR) Styles de pied de page */
+  #navigation-menu.is-expanded #nav-toggle-button .icon-hamburger {
+    display: none;
+  }
+
+  /* (EN) Footer styles (FR) Styles de pied de page */
+  #navigation-menu.is-expanded #nav-toggle-button .icon-close {
+    display: block;
+  }
+
+  /* (EN) Footer styles (FR) Styles de pied de page */
+  @media screen and (max-width: 1280px) {
+    #nav-toggle-button {
+      display: block;
+    }
+
+    .navigation-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    #navigation-menu.is-expanded {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 2000;
+    }
+
+    #navigation-menu.is-expanded .logo-link,
+    #navigation-menu.is-expanded .icon-hamburger {
+      display: none;
+    }
+
+    #navigation-menu.is-expanded #nav-toggle-button {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 2001;
+    }
+
+    #navigation-menu.is-expanded .navigation-links {
+      display: flex;
+    }
+
+    #navigation-menu.is-expanded #nav-toggle-button .icon-hamburger {
+      display: none;
+    }
+
+    #navigation-menu.is-expanded #nav-toggle-button .icon-close {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    #navigation-menu.is-expanded #nav-toggle-button .icon-open {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 24px;
+    }
+
+    #navigation-menu.is-expanded .navigation-links a {
+      color: #000000;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+
+  #nav-toggle-button svg {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

@@ -1,0 +1,93 @@
+/* Directory: frontend/public/css
+   File: common.css
+   Description (Description):
+   Common reusable styles for buttons, etc. (Styles communs réutilisables) */
+
+/* (EN) Buttons styling (FR) Styles de boutons) */
+.button, .btn, .btn-outline {
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+/* (EN) Main .btn style (FR) Style principal du bouton .btn */
+.btn {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  color: #F5F5DC;
+  background-color: #3E1E04;
+  border: 2px solid #3E1E04;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* (EN) Hover and focus effect for .btn (FR) Effet au survol et au focus pour .btn */
+.btn:hover,
+.btn:focus {
+  background-color: #F5F5DC;
+  color: #3E1E04;
+  border-color: #3E1E04;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* (EN) Active effect for .btn (FR) Effet lors du clic pour .btn */
+.btn:active {
+  transform: translateY(0px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* (EN) Outline button style (FR) Style de bouton Outline */
+.btn-outline {
+  padding: 0.5rem 1rem;
+  color: #3E1E04; /* Texte sombre pour contraste sur fond blanc */
+  border: 2px solid #3E1E04; /* Bordure sombre pour meilleur contraste */
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
+  transition: all 0.3s ease-in-out;
+}
+
+/* (EN) Hover and focus effect for .btn-outline (FR) Effet au survol et au focus pour .btn-outline */
+.btn-outline:hover,
+.btn-outline:focus {
+  color: #F5F5DC; /* Texte clair lorsque survolé */
+  border-color: #3E1E04; /* Bordure sombre */
+  background-color: #3E1E04; /* Fond sombre pour inversion des couleurs */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+}
+
+/* (EN) Active effect for .btn-outline (FR) Effet lors du clic pour .btn-outline */
+.btn-outline:active {
+  transform: translateY(0px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* (EN) Inverted outline button style (FR) Style de bouton Outline inversé */
+.btn-outline-inverted {
+  padding: 0.5rem 1rem;
+  color: #FFFFFF; /* Texte clair */
+  border: 2px solid #FFFFFF; /* Bordure claire */
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
+  transition: all 0.3s ease-in-out;
+}
+
+/* (EN) Hover and focus effect for .btn-outline-inverted (FR) Effet au survol et au focus pour .btn-outline-inverted */
+.btn-outline-inverted:hover,
+.btn-outline-inverted:focus {
+  color: #3E1E04; /* Texte sombre lors du survol */
+  border-color: #3E1E04; /* Bordure sombre */
+  background-color: #FFFFFF; /* Fond clair pour inversion */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
+}
+
+/* (EN) Active effect for .btn-outline-inverted (FR) Effet lors du clic pour .btn-outline-inverted */
+.btn-outline-inverted:active {
+  transform: translateY(0px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}

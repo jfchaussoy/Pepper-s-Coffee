@@ -1,0 +1,62 @@
+/* Directory: frontend/public/css
+   File: article-detail.css
+   Description (Description):
+   Styles for the article detail page (Styles pour la page de détail article) */
+
+   /* (EN) Product detail layout (FR) Mise en page du détail du produit) */
+   #product-detail {
+    padding: 4rem 2rem;
+  }
+ 
+  /* (EN) Product detail title (FR) Titre du détail du produit) */
+  #product-detail h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+ 
+  /* (EN) Product detail item layout (FR) Mise en page de l'élément du détail du produit) */
+  .product-detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* (EN) Product detail image layout (FR) Mise en page de l'image du détail du produit) */
+.product-detail-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/* (EN) Product detail info layout (FR) Mise en page des informations du détail du produit) */
+.product-detail-info {
+  text-align: center;
+}
+
+/* (EN) Product detail name (FR) Nom du détail du produit) */
+.product-detail-name {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+/* (EN) Product detail description (FR) Description du détail du produit) */
+.product-detail-description {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* (EN) Product detail price (FR) Prix du détail du produit) */
+.product-detail-price {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* (EN) Product detail button (FR) Bouton du détail du produit) */
+.product-detail-info .btn {
+  display: inline-block;
+}

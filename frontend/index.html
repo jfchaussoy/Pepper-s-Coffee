@@ -1,0 +1,40 @@
+<!-- Directory: frontend
+     File: index.html
+     Description (Description): 
+     Entry point that displays the main <div id="app"> for the single-page app. (Point d'entrée affichant le conteneur principal) -->
+
+      <!DOCTYPE html>
+      <html lang="fr">
+      <head>
+        <!-- (EN) Preload critical CSS to avoid layout shifts (FR) Précharger le CSS critique pour éviter les décalages de mise en page -->
+        <link rel="preload" href="/css/reset.css" as="style" onload="this.rel='stylesheet'">
+        <link rel="preload" href="/css/base.css" as="style" onload="this.rel='stylesheet'">
+        <link rel="preload" href="/css/common.css" as="style" onload="this.rel='stylesheet'">
+        <link rel="preload" href="/css/layout.css" as="style" onload="this.rel='stylesheet'">
+        <!-- Optionally, preload home.css or catalog.css if that's the main page -->
+        <link rel="preload" href="/css/home.css" as="style" onload="this.rel='stylesheet'">
+      
+        <!-- (EN) Fallback for no-JS scenario (FR) Fallback si JavaScript désactivé -->
+        <noscript>
+          <link rel="stylesheet" href="/css/reset.css">
+          <link rel="stylesheet" href="/css/base.css">
+          <link rel="stylesheet" href="/css/common.css">
+          <link rel="stylesheet" href="/css/layout.css">
+          <link rel="stylesheet" href="/css/home.css">
+        </noscript>
+      
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pepper's Coffee</title>
+        <meta name="description" content="Bienvenue chez Pepper's Coffee, spécialiste du café de qualité.">
+      
+        <!-- (EN) Minimizing JS and deferring scripts can help performance (FR) Minimiser et différer les scripts JS peut aider les performances -->
+        <script type="module" src="./src/js/main.js" defer></script>
+      </head>
+      
+      <body>
+        <!-- (EN) This is our main SPA container (FR) Conteneur principal pour l'application SPA -->
+        <div id="app"></div>
+      </body>
+      </html>
+      

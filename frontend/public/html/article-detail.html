@@ -1,0 +1,47 @@
+<!-- Directory: frontend/public/html
+     File: article-detail.html
+     Description (Description):
+     Article detail page HTML template. (Page détails d'un café) -->
+
+     <!DOCTYPE html>
+     <html lang="fr">
+     <head>
+       <!-- (EN) Preload detail CSS (FR) Préchargement CSS details article -->
+       <link rel="preload" href="/css/article-detail.css" as="style" onload="this.rel='stylesheet'">
+       <noscript><link rel="stylesheet" href="/css/article-detail.css"></noscript>
+     
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Pepper's Coffee | Détails de l'Article</title>
+       <meta name="description" content="Détails de nos cafés de qualité chez Pepper's Coffee">
+     </head>
+     
+     <body>
+       <section id="product-detail">
+         <h1>Détails de l'Article</h1>
+         <article class="product-detail-item">
+           <!-- (EN) Setting explicit width/height to reduce CLS (FR) Largeur/hauteur explicites pour réduire CLS -->
+           <img 
+             src="/images/placeholder-product.jpg"
+             alt="Image de l'Article"
+             loading="lazy"
+             width="400" height="300"
+             class="product-detail-image"
+             id="detail-image"
+           >
+           <div class="product-detail-info">
+             <h3 class="product-detail-name" id="detail-name">Nom de l'Article</h3>
+             <p class="product-detail-description" id="detail-description">
+               Description détaillée de l'article.
+             </p>
+             <p class="product-detail-price" id="detail-price">
+               Prix : <strong>€XX.XX</strong>
+             </p>
+             <p class="product-detail-origin" id="detail-origin">Origine : Pays</p>
+             <p class="product-detail-reference" id="detail-reference">Référence : REF123456</p>
+             <a href="/catalog" class="btn">Retour au Catalogue</a>
+           </div>
+         </article>
+       </section>
+     </body>
+     </html>

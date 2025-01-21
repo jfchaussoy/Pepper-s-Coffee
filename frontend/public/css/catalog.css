@@ -1,0 +1,156 @@
+/* Directory: frontend/public/css
+   File: catalog.css
+   Description (Description):
+   Styles for the catalog page (Styles pour la page catalogue) */
+
+/* (EN) Catalog layout (FR) Mise en page du catalogue) */
+   #catalog {
+    padding: 4rem 2rem;
+  }
+  
+  /* (EN) Catalog title (FR) Titre du catalogue) */
+  #catalog h1 {
+    padding: 4.5rem;
+    background-image: url('/images/coffees/256505890.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    box-shadow: inset 0 0 0 100vw rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 2rem;
+  }
+  
+  /* (EN) The product list (FR) Liste de produits) */
+  /* product-list container (same style for new-arrivals & catalog) */
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    justify-items: center;
+  }
+
+/* (EN) Product item layout (FR) Mise en page de l'élément de produit) */
+.only-show-three .product-item:nth-child(n+4) {
+  display: none;
+}
+
+/* (EN) Product item layout (FR) Mise en page de l'élément de produit) */
+.product-item {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* (EN) Hover effect for the product item (FR) Effet au survol pour l'élément de produit) */
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* (EN) Product details layout (FR) Mise en page des détails du produit) */
+.product-details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* (EN) Product name layout (FR) Mise en page du nom du produit) */
+.product-name {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* (EN) Product origin layout (FR) Mise en page de l'origine du produit) */
+.product-origin {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* (EN) Product price layout (FR) Mise en page du prix du produit) */
+.product-price {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* (EN) View all products button (FR) Bouton pour voir tous les produits) */
+#view-all-products-button {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+  
+/* (EN) Background color (FR) Couleur de fond) */
+  background-color: #3E1E04;  
+  color: white;             
+  border: 2px solid black;  
+
+/* (EN) Border radius (FR) Rayon de la bordure) */
+  border-radius: 0.5rem;
+
+/* (EN) Transition effect (FR) Effet de transition) */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+/* (EN) Hover and focus effect for the button (FR) Effet au survol et au focus pour le bouton) */
+#view-all-products-button:hover,
+#view-all-products-button:focus {
+  /* Inversion à l’hover : passe en transparent avec texte noir */
+  background-color: transparent;
+  color: black;
+  border-color: #3E1E04;
+  transform: translateY(-2px);
+}
+
+/* (EN) Active effect for the button (FR) Effet lors du clic pour le bouton) */
+#view-all-products-button:active {
+  transform: translateY(0);
+}
+
+/* (EN) Responsive design (FR) Design responsive) */
+@media screen and (max-width: 768px) {
+  #catalog h1 {
+    padding: 3rem;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+
+/* (EN) Product list layout (FR) Mise en page de la liste de produits) */
+.product-list {
+  grid-template-columns: 1fr;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+  /* (EN) Product item layout (FR) Mise en page de l'élément de produit) */
+  .product-item {
+    width: 15rem;
+  }
+
+  /* (EN) Product image layout (FR) Mise en page de l'image du produit) */
+  .product-details {
+    padding: 1.5rem;
+  }
+/* (EN) Product name layout (FR) Mise en page du nom du produit) */
+  .product-name {
+    font-size: 1.2rem;
+  }
+/* (EN) Product origin layout (FR) Mise en page de l'origine du produit) */
+  .product-price {
+    font-size: 1rem;
+  }
+}

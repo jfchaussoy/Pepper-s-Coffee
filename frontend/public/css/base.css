@@ -1,0 +1,22 @@
+/* Directory: frontend/public/css
+   File: base.css
+   Description (Description):
+   Base styles for entire website (Styles de base) */
+
+/* (EN) Basic font, line-height, and default layout (FR) Font, line-height, layout par défaut */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  width: 80%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+
+/* (EN) Main container with top/bottom padding to avoid collisions with fixed header (FR) Conteneur principal avec padding pour le header fixe */
+main {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0rem 0 4rem 0;
+}

@@ -1,0 +1,141 @@
+/* Directory: frontend/public/css
+   File: home.css
+   Description (Description):
+   Styles for the home page (Styles pour la page d'accueil) */
+
+/* (EN) About us section layout (FR) Mise en page de la section "À propos" */
+#about-us {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  padding: 2rem 0;
+}
+
+/* (EN) About us text (FR) Texte "À propos" */
+.about-image {
+  border-radius: 0.7rem;
+  object-fit: cover;
+  width: 50%;
+  max-width: 650px;
+  box-shadow: var(--shadow-dark, 0 2px 4px rgba(0, 0, 0, 0.2));
+  /* Add explicit width/height in HTML to avoid CLS */
+}
+
+/* (EN) New arrivals section (FR) Section Nouveautés) */
+#new-arrivals {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+/* (EN) New arrivals list (FR) Liste des nouveautés) */
+#new-arrivals-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* (en) New arrivals title (FR) Titre des nouveautés) */
+#new-arrivals h2 {
+  text-align: center;
+  font-size: var(--font-size-large);
+  margin-bottom: 2rem;
+}
+
+/* (EN) Product list layout (FR) Mise en page de la liste de produits) */
+.product-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0;
+}
+
+/* (EN) Product item layout (FR) Mise en page de l'élément de produit) */
+.product-item {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* (EN) Hover effect for the product item (FR) Effet au survol pour l'élément de produit) */
+.product-item:hover {
+  transform: translateY(-5px);
+}
+
+/* (EN) Product image layout (FR) Mise en page de l'image du produit) */
+.product-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* (EN) Product details layout (FR) Mise en page des détails du produit) */
+.product-details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* (EN) Product name layout (FR) Mise en page du nom du produit) */
+.product-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #3E1E04;
+}
+
+/* (EN) Product origin layout (FR) Mise en page de l'origine du produit) */
+.product-origin {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* (EN) Product price layout (FR) Mise en page du prix du produit) */
+.product-price {
+  font-weight: 600;
+  color: #3E1E04;
+  margin: 0.5rem 0;
+}
+
+/* (EN) Button layout (FR) Mise en page du bouton) */
+.btn-outline {
+  margin-top: auto;
+  text-align: center;
+}
+
+/* (EN) Responsive layout for smaller screens (FR) Mise en page responsive pour les petits écrans) */
+@media screen and (max-width: 768px) {
+  #about-us {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  /* (EN) Hide the image on smaller screens (FR) Masquer l'image sur les petits écrans) */
+  .about-image {
+    display: none;
+  }
+  /* (EN) New arrivals list layout (FR) Mise en page de la liste des nouveautés) */
+  .about-content {
+    width: 100%;
+  }
+  /* (EN) Product item layout (FR) Mise en page de l'élément de produit) */
+  .product-item {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  /* (EN) Product list layout (FR) Mise en page de la liste de produits) */
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}
+

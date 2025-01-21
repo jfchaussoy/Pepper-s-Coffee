@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .error-image {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .btn {
+    margin-top: 2rem;
+  }

@@ -1,0 +1,45 @@
+<!-- Directory: frontend/public/html
+     File: catalog.html
+     Description: Catalog page HTML template (Page catalogue) -->
+
+     <!DOCTYPE html>
+     <html lang="fr">
+     <head>
+       <link rel="preload" href="/css/catalog.css" as="style" onload="this.rel='stylesheet'">
+       <noscript><link rel="stylesheet" href="/css/catalog.css"></noscript>
+     
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Pepper's Coffee | Catalogue</title>
+       <meta name="description" content="Découvrez le catalogue de Pepper's Coffee.">
+     </head>
+     <body>
+       <section id="catalog">
+         <h1>Notre Catalogue</h1>
+         <!-- (EN) Same .product-list structure (FR) Même structure .product-list -->
+         <div class="product-list only-show-three" id="product-list">
+           <!-- (EN) The article elements (FR) Les <article> -->
+           <!-- Exemples statiques (normalement rendus en JS) -->
+           <!--
+           <article class="product-item">
+             <img 
+               src="/images/coffees/105589090.webp" 
+               alt="Ethiopian Yirgacheffe" 
+               class="product-image"
+               width="300" height="200"
+               loading="lazy"
+             >
+             <div class="product-details">
+               <h3 class="product-name">Ethiopian Yirgacheffe</h3>
+               <p class="product-origin">Origine: Éthiopie</p>
+               <p class="product-price">Prix: €22.50/kg</p>
+               <a class="btn-outline" href="/article-detail?id=3">Voir Détails</a>
+             </div>
+           </article>
+           -->
+         </div>
+         <button class="btn" id="view-all-products-button">Voir tous les produits</button>
+       </section>
+     </body>
+     </html>
+     

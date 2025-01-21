@@ -4,48 +4,48 @@
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Node.js](https://img.shields.io/badge/Node.js-16.x-green.svg)](https://nodejs.org/)
 
-**Pepper's Coffee** est un site web e-commerce spécialisé dans la vente de cafés de qualité supérieure. Ce projet a été développé dans le cadre du titre professionnel **Développeur Web et Web Mobile**. Il permet aux utilisateurs de consulter un catalogue de cafés, d'en voir les détails et de naviguer facilement entre les différentes sections du site.
+**Pepper's Coffee** is an e-commerce website specialized in selling high-quality coffee. This project was developed as part of the professional title **Web and Mobile Web Developer**. It allows users to browse a catalog of coffees, view their details, and easily navigate through different sections of the site.
 
 <div align="center">
   <img src="public/images/logo.svg" alt="Logo Pepper's Coffee" width="200"/>
-  <p><em>Logo de Pepper's Coffee</em></p>
+  <p><em>Logo of Pepper's Coffee</em></p>
 </div>
 
-## 📑 Table des Matières
+## 📑 Table of Contents
 
 - [🌟 Pepper's Coffee](#-peppers-coffee)
-  - [📑 Table des Matières](#-table-des-matières)
-  - [✨ Fonctionnalités](#-fonctionnalités)
-  - [🛠️ Technologies Utilisées](#️-technologies-utilisées)
+  - [📑 Table of Contents](#-table-of-contents)
+  - [✨ Features](#-features)
+  - [🛠️ Technologies Used](#️-technologies-used)
   - [⚙️ Installation](#️-installation)
-    - [📋 Prérequis](#-prérequis)
-    - [📥 Cloner le Dépôt](#-cloner-le-dépôt)
-- [Cloner via SSH](#cloner-via-ssh)
-- [Ou via HTTPS](#ou-via-https)
-- [Accéder au répertoire](#accéder-au-répertoire)
-- [Installer les dépendances](#installer-les-dépendances)
+    - [📋 Prerequisites](#-prerequisites)
+    - [📥 Clone the Repository](#-clone-the-repository)
+- [Clone via SSH](#clone-via-ssh)
+- [Or via HTTPS](#or-via-https)
+- [Access the directory](#access-the-directory)
+- [Install dependencies](#install-dependencies)
 
-## ✨ Fonctionnalités
+## ✨ Features
 
-- 🏠 **Accueil** : Présentation de Pepper's Coffee avec une section "Nouveautés"
-- 📚 **Catalogue** : Liste complète des cafés disponibles
-- 📝 **Détails d'un Article** : Informations détaillées des cafés
-- 📱 **Navigation Responsive** : Design adaptatif
-- ♿ **Accessibilité** : Conformité RGAA
-- 🔒 **Sécurité** : Protection XSS et gestion des erreurs
+- 🏠 **Home** : Introduction to Pepper's Coffee with a "New Arrivals" section
+- 📚 **Catalog** : Full list of available coffees
+- 📝 **Item Details** : Detailed information about the coffees
+- 📱 **Responsive Navigation** : Adaptive design
+- ♿ **Accessibility** : RGAA compliance
+- 🔒 **Security** : XSS protection and error handling
 
 <div align="center">
-  <img src="public/images/screenshots/home.png" alt="Capture d'écran de la page d'accueil" style="max-width: 800px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px;"/>
-  <p><em>Page d'accueil de Pepper's Coffee</em></p>
+  <img src="public/images/screenshots/home.png" alt="Screenshot of the home page" style="max-width: 800px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 8px;"/>
+  <p><em>Home page of Pepper's Coffee</em></p>
 </div>
 
-## 🛠️ Technologies Utilisées
+## 🛠️ Technologies Used
 
 <table>
   <tr>
     <th>Front-end</th>
     <th>Back-end</th>
-    <th>Outils</th>
+    <th>Tools</th>
   </tr>
   <tr>
     <td>
@@ -68,27 +68,27 @@
 
 ## ⚙️ Installation
 
-### 📋 Prérequis
+### 📋 Prerequisites
 
-Assurez-vous d'avoir installé :
+Make sure you have installed:
 
-- [Node.js](https://nodejs.org/fr/) (v16.x+)
+- [Node.js](https://nodejs.org/en/) (v16.x+)
 - [npm](https://www.npmjs.com/)
 - [Git](https://git-scm.com/)
 - [Docker](https://www.docker.com/)
 - [VSCode](https://code.visualstudio.com/)
 
-### 📥 Cloner le Dépôt
+### 📥 Clone the Repository
 
 ```bash
-# Cloner via SSH
+# Clone via SSH
 git clone git@github.com:jfchaussoy/Pepper-s-Coffee.git
 
-# Ou via HTTPS
+# Or via HTTPS
 git clone https://github.com/jfchaussoy/Pepper-s-Coffee.git
 
-# Accéder au répertoire
+# Access the directory
 cd Pepper-s-Coffee
 
-# Installer les dépendances
+# Install dependencies
 npm install

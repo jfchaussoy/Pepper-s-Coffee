@@ -1,0 +1,75 @@
+<!-- Directory: frontend/public/html
+     File: home.html
+     Description (Description):
+     Home page HTML template. (Page d'accueil du site) -->
+
+     <!DOCTYPE html>
+     <html lang="fr">
+     <head>
+       <!-- (EN) Preload critical CSS (FR) Préchargement CSS critique -->
+       <link rel="preload" href="/css/home.css" as="style" onload="this.rel='stylesheet'">
+       <noscript><link rel="stylesheet" href="/css/home.css"></noscript>
+     
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Pepper's Coffee | Accueil</title>
+       <meta name="description" content="Découvrez la page d'accueil de Pepper's Coffee, votre spécialiste café.">
+     </head>
+     
+     <body>
+       <!-- (EN) Header is rendered dynamically by JS, so minimal markup here (FR) L'en-tête est rendu dynamiquement, donc markup minimal -->
+       <main>
+         <!-- (EN) About Us Section (FR) Section À propos -->
+         <section id="about-us">
+          <div class="about-content">
+            <h2>Peppers Coffee, Votre <strong>spécialiste du café</strong></h2>
+            <p>
+              Peppers Coffee est un détaillant de café et de produits associés, originaire du <strong>Trou d'Enfer</strong> dans le Pas-de-Calais. Fondé avec la passion de l'artisanat caféier, Peppers Coffee se distingue par sa <strong>sélection minutieuse</strong> de grains de café provenant des meilleurs terroirs du monde.  
+            </p>
+            <p>
+              En tant que <strong>spécialiste local</strong>, nous sommes fiers d'offrir une <strong>expérience unique</strong> à nos clients, en proposant non seulement des cafés torréfiés avec soin, mais aussi une gamme complète d'équipements pour préparer votre café idéal chez vous. 
+            </p>
+            <p>
+              Nos produits sont choisis pour leur <strong>qualité</strong> et leur <strong>authenticité</strong>, reflétant l'esprit de notre terroir unique, le Trou d'Enfer, un lieu chargé d'histoire et de tradition. Chez Peppers Coffee, nous ne vendons pas simplement du café; nous partageons une <strong>culture</strong>, une <strong>passion</strong> et un <strong>mode de vie</strong> qui célèbre chaque tasse comme un moment de plaisir et de découverte.
+            </p>
+            <a class="btn" href="/catalog">Découvrir notre catalogue</a>
+          </div>
+           <!-- (EN) Add explicit width and height to avoid layout shift (FR) Ajout width/height pour éviter CLS -->
+           <img 
+             src="/images/about.webp" 
+             alt="Sélection de nos meilleurs cafés Pepper's Coffee" 
+             class="about-image"
+             width="650" height="430"
+             loading="lazy"
+           >
+         </section>
+     
+         <!-- (EN) New Arrivals Section (FR) Section Nouveautés -->
+         <section id="new-arrivals">
+           <h3>Nouveautés</h3>
+           <div class="product-list" id="new-arrivals-list">
+            <!-- (EN) Articles inserted here via JS or directly in HTML (FR) Les <article> sont insérés ici en JS ou directement en HTML -->
+            <!-- Exemple possible ci-dessous (statique), à remplacer par un rendu dynamique si tu préfères -->
+            <!--
+            <article class="product-item">
+              <img 
+                src="/images/coffees/105589090.webp" 
+                alt="Ethiopian Yirgacheffe" 
+                class="product-image" 
+                width="300" height="200" 
+                loading="lazy"
+              >
+              <div class="product-details">
+                <h3 class="product-name">Ethiopian Yirgacheffe</h3>
+                <p class="product-origin">Origine: Éthiopie</p>
+                <p class="product-price">Prix: €22.50/kg</p>
+                <a class="btn-outline" href="/article-detail?id=3">Voir Détails</a>
+              </div>
+            </article>
+            -->
+          </div>
+         </section>
+       </main>
+     </body>
+     </html>
+     

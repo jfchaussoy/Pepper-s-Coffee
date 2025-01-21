@@ -1,0 +1,28 @@
+# Règles de gestion pour Pepper's Coffee
+
+## Intégrité référentielle
+
+- Un café doit toujours appartenir à une catégorie existante.
+  - La clé étrangère `category_id` de la table `coffee` fait référence à l'identifiant de la table `category`.
+- Une commande (Order) doit toujours être associée à un client existant.
+  - La colonne `customer_id` dans la table `order` est une clé étrangère vers `customer.id`.
+
+## Unicité et valeurs obligatoires
+
+- Le champ `reference` dans la table `coffee` doit être unique et composé de 9 caractères, assurant l'identification unique de chaque café.
+- L'email de chaque client (`Customer.email`) doit être unique, afin d'éviter les doublons et de faciliter l'authentification.
+
+## Gestion des quantités et montants
+
+- La quantité de chaque article dans une commande (`OrderItem.quantity`) doit être supérieure à 0.
+- Le montant total d'une commande (`Order.total_amount`) doit correspondre à la somme des prix unitaires multipliés par les quantités des articles commandés.
+
+## Contraintes sur les dates et statuts
+
+- La date de commande (`Order.order_date`) ne peut être nulle et doit refléter la date d'enregistrement de la commande.
+- Le statut d'une commande (`Order.status`) doit être limité à des valeurs prédéfinies (par exemple : pending, shipped, delivered).
+
+## Sécurité et confidentialité
+
+- Les mots de passe des clients doivent être stockés sous forme de hash (par exemple, en utilisant bcrypt) afin d'assurer la sécurité des données personnelles.
+- Les accès à la base de données doivent être restreints à des rôles spécifiques, définissant les droits (lecture, écriture, modification), conformément aux exigences RGPD.
